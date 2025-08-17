@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3qncfdvdtt4c"]
+[gd_scene load_steps=3 format=3 uid="uid://b3qncfdvdtt4c"]
 
-[ext_resource type="Script" uid="uid://c1eul883i4kbe" path="res://win.gd" id="1_e1mhc"]
+[ext_resource type="Script" uid="uid://dpr4375h4fb3n" path="res://win.gd" id="2_8juyl"]
+[ext_resource type="PackedScene" uid="uid://bmgv2mpa724r3" path="res://WS.tscn" id="3_8f5kv"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_e1mhc")
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_8juyl")
+
+[node name="BoxContainer" parent="." instance=ExtResource("3_8f5kv")]
+visible = false
+offset_left = -197.0
+offset_top = 28.0
+offset_right = -170.0
+offset_bottom = 54.0
+
+[node name="Node2D2" type="Node2D" parent="."]
+visible = false

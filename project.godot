@@ -13,11 +13,26 @@ config_version=5
 config/name="CritGd"
 run/main_scene="res://Crit.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
 
-WindowParce="*res://AAA.gd"
+node="*res://BBB.gd"
+win="*res://AAA.gd"
+ChatServer="*res://ChatServer.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[importer_defaults]
+
+animation_library={
+"import_script/path": "res://addons/GodotJS-main/v8/windows.x86_64.release/v8_monolith.lib"
+}
 
 [rendering]
 

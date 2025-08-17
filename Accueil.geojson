@@ -1,0 +1,13 @@
+{
+"type":"Collection",
+"name":"XML_doss",
+"crs":{"type":"name","utilisation":{"name": "CritCanvas"}},
+"item":[
+{"type":"Feature","utilisation":{"id":"Region.click_","route":"null","couleur":"#000000","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.66198,43.967571],[4.696398,43.967571],[4.696398,43.95472],[4.66198,43.95472],[4.66198,43.967571]]]}} , 
+{"type":"Feature","utilisation":{"id":"fond.geojson","route":"null","couleur":"#ffffff","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.688931,43.958057],[4.695196,43.958057],[4.695196,43.956327],[4.688931,43.956327],[4.688931,43.958057]]]}} , 
+{"type":"Feature","utilisation":{"id":"Region.geojson","route":"null","couleur":"#ffffff","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.689102,43.960096],[4.694681,43.960096],[4.694681,43.958922],[4.689102,43.958922],[4.689102,43.960096]]]}} , 
+{"type":"Feature","utilisation":{"id":"fond.click_","route":"null","couleur":"#ffffff","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.689016,43.963246],[4.69511,43.963246],[4.69511,43.961517],[4.689016,43.961517],[4.689016,43.963246]]]}} , 
+{"type":"Feature","utilisation":{"id":"Accueil.geojson","route":"null","couleur":"#ffffff","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.689016,43.966397],[4.694939,43.966397],[4.694939,43.964358],[4.689016,43.964358],[4.689016,43.966397]]]}}
+]
+}
+ 

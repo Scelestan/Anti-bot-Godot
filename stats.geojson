@@ -1,0 +1,16 @@
+{
+"type":"Collection",
+"name":"XML_doss",
+"crs":{"type":"name","utilisation":{"name": "CritCanvas"}},
+"item":[
+{"type":"Feature","utilisation":{"id":"testITEM.click_","route":"null","couleur":"#7a7a7a","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.676485,43.970165],[4.716654,43.970165],[4.716654,43.948232],[4.676485,43.948232],[4.676485,43.970165]]]}} , 
+{"type":"Feature","utilisation":{"id":"details","route":"null","couleur":"#ffffff","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.694853,43.957192],[4.715452,43.957192],[4.715452,43.949221],[4.694853,43.949221],[4.694853,43.957192]]]}} , 
+{"type":"Feature","utilisation":{"id":"stat5","route":"null","couleur":"#000000","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.696569,43.958057],[4.713306,43.958057],[4.713306,43.95966299999999],[4.696569,43.95966299999999],[4.696569,43.958057]]]}} , 
+{"type":"Feature","utilisation":{"id":"stat4","route":"null","couleur":"#000000","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.696569,43.960961],[4.713306,43.960961],[4.713306,43.96256699999999],[4.696569,43.96256699999999],[4.696569,43.960961]]]}} , 
+{"type":"Feature","utilisation":{"id":"stat3","route":"null","couleur":"#000000","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.696484,43.963864],[4.713221,43.963864],[4.713221,43.965469999999996],[4.696484,43.965469999999996],[4.696484,43.963864]]]}} , 
+{"type":"Feature","utilisation":{"id":"stat2","route":"null","couleur":"#000000","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.696484,43.96547],[4.713221,43.96547],[4.713221,43.967076],[4.696484,43.967076],[4.696484,43.96547]]]}} , 
+{"type":"Feature","utilisation":{"id":"stat1","route":"null","couleur":"#000000","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.696484,43.968621],[4.713221,43.968621],[4.713221,43.967015],[4.696484,43.967015],[4.696484,43.968621]]]}} , 
+{"type":"Feature","utilisation":{"id":"image","route":"null","couleur":"#ffffff","utiliser":"","contour":null,"Ordre":"-2"},"geometry":{"type":"Polygon","coordinates":[[[4.678717,43.96893],[4.693394,43.96893],[4.693394,43.951322],[4.678717,43.951322],[4.678717,43.96893]]]}}
+]
+}
+ 

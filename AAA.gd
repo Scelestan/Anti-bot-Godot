@@ -1,7 +1,7 @@
 @tool
 extends Window
-var image = Image.load_from_file("res://As Pancarte.png")
-var texture = ImageTexture.create_from_image(image)
+#var image = Image.load_from_file("res://build.png")
+#var texture = ImageTexture.create_from_image(image)
 
 # Python pour Godot
 # Ceci est un premier essai de traduction du code JavaScript en Python pour Godot.
@@ -9,6 +9,7 @@ var texture = ImageTexture.create_from_image(image)
 # Note: Ce code est une traduction directe et peut nécessiter des ajustements pour fonctionner dans Godot.
 
 # Déclarations de variables
+
 var quent = 0.05
 var ekt3 = []
 var ekt22 = []
@@ -115,6 +116,50 @@ func MATR(Xf):
 
 
  # Fonctions
+func LanceA(geo):
+	var as2 = 0
+	var w1 = 0
+	var x1 = 0
+	var w2 = 0
+	var x2 = 0
+	
+	if as2 == 0:
+		#print(o)
+		for aaaaa in range(len(geo[0])):
+			if aaaaa == 0:
+				w1 = float(geo[0][aaaaa][0])
+				w2 = float(geo[0][aaaaa][0])
+				x1 = float(geo[0][aaaaa][1])
+				x2 = float(geo[0][aaaaa][1])
+
+			for aaaa in range(len(geo[0])):
+				if w1 - float(geo[0][aaaa][0]) > 0:
+					pass
+				else:
+					w1 = float(geo[0][aaaa][0])
+
+				if w2 - float(geo[0][aaaa][0]) < 0:
+					pass
+				else:
+					w2 = float(geo[0][aaaa][0])
+
+				if x1 - float(geo[0][aaaa][1]) > 0:
+					pass
+				else:
+					x1 = float(geo[0][aaaa][1])
+					
+
+				if x2 - float(geo[0][aaaa][1]) < 0:
+					pass
+				else:
+					x2 = float(geo[0][aaaa][1])
+
+			var W1 = w2
+			var W2 = w1
+			var X1 = x1
+			var X2 = x2
+			return [W1,W2,X1,X2]
+
 
 func LanceB(bord_Left, bord_Top, bord_Right, bord_Bottom):
 	exo = len(jsonContent['item'])
@@ -234,6 +279,10 @@ func Activer(algoColo):
 		hhhx = 0
 		hhhy = 0
 		hhhy22 = 0
+		var geo = jsonContent2["item"][bbbb2]["geometry"]["coordinates"]
+		var screen_size = LanceA.call(geo)
+		var posXX2 = float(cnvert.call(0,screen_size[0],posXX, 0, bbbb2)-cnvert.call(0,screen_size[1],posXX, 0, bbbb2))
+		var posYY2 = float(cnvert.call(screen_size[2],0,posYY, 0, bbbb2)-cnvert.call(screen_size[3],0,posYY, 0, bbbb2))
 		for aaaa in range(len(jsonContent2["item"][bbbb2]["geometry"]["coordinates"][0])):
 			hhhx = cnvert.call(0, jsonContent2["item"][bbbb2]["geometry"]["coordinates"][0][aaaa][1],Xpos, 0, bbbb2)
 			hhhy = cnvert.call(jsonContent2["item"][bbbb2]["geometry"]["coordinates"][0][aaaa][0], 0,Ypos, 0, bbbb2)
@@ -290,17 +339,38 @@ func Activer(algoColo):
 			var polygon;
 			if len(viag) < bbbb2+1:
 				polygon = Polygon2D.new()
-			# Set the polygon.
+				# Set the polygon.
 				polygon.polygon = ctx
-			# Set the texture.
-				polygon.texture = texture
-				polygon.color = godot_blue
+				# Set the texture.
 				
+				#image = Image.load_from_file("res://As Pancarte.png", )
+				#image.resize(posXX2, posYY2, 1)
+				
+				var posRegion = Vector2(cnvert.call(screen_size[0],0,posXX, 0, bbbb2),cnvert.call(0,screen_size[2],posYY, 0, bbbb2))
+				
+				polygon.set_position(posRegion)
+				polygon.set_offset(-posRegion)
+				#var text = texture.duplicate()
+				#text.rect_position(posRegion)
+				#text.set_image(image)
+				#text.set_size_override(Vector2i(posXX2, posYY2))
+				
+				
+				#polygon.texture = text
+				#polygon.texture = text
+				polygon.color = godot_blue
 				add_child(polygon)
+				
 				viag.append([ctx, jsonContent2["item"][bbbb2]["utilisation"]["id"], polygon])
+				
 			else:
 				viag[bbbb2][0] = ctx
 				viag[bbbb2][2].polygon = ctx
+		
+				#image = Image.load_from_file("res://As Pancarte.png", )
+				#image.resize(posXX2, posYY2, 1)
+				#var text = texture.duplicate()
+				#viag[bbbb2][2].texture = text
 				viag[bbbb2][2].color = godot_blue
 				
 				viag[bbbb2][2].set_position(Vector2(Ypos,Xpos))
@@ -349,18 +419,14 @@ func get_size2(ratio):
 	var screen_size = get_size_with_decorations()
 	posXX = float(str(screen_size).split(",")[0].split("(")[1])*ratio
 	posYY = float(str(screen_size).split(",")[1].split(")")[0])*ratio
-	image = Image.load_from_file("res://As Pancarte.png", )
-	image.resize(posXX, posYY, 1)
-	texture.set_image(image)
+
 func sizes(setZ):
 	get_size2.call(1+setZ)
 
 var rect = []
 var testouille = 15
 func _geoJsonGd(Geo):
-	for inp in len(viag):
-		remove_child(viag[inp][2])
-	viag = []
+	
 	rect = []
 	fX = Geo
 	MATR.call(fX)#parameter = the name of the file geojson to load
@@ -426,13 +492,16 @@ func _input(event):
 			for v in range(len(viag)):
 				if viag[v][1]!="":
 					if Geometry2D.is_point_in_polygon(get_viewport().get_mouse_position(), viag[v][0]):
-						if (len(viag[v][1].split(".geo"))==2):
-							fX = viag[v][1].split(".geo")[0]
-						else:
-							print(fX)
+						if len(viag[v][1].split(".click")) == 2 && ((viag[v][1].split(".click")[1])=="_"):
+							fX = viag[v][1].split(".click")[0] + ".geojson"
+							
+							for inp in len(viag):
+								remove_child(viag[inp][2])
+							viag = []
+							
 						
 						
-						_draw(0)
+							_geoJsonGd.call(fX)
 						break;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -449,13 +518,18 @@ func _process(delta):
 		var patt2 = float(rng2.randi_range(1, 1))
 		var rng3 = RandomNumberGenerator.new()
 		var patt3 = float(rng3.randi_range(1, 1))
-		Ypos += ((float(str(get_viewport().get_mouse_position()).split(",")[0].split("(")[1])-(posiXX/2*patt2))+(Left_pos-Right_pos)/posiXX/PI)*0.01
-		Xpos += ((float(str(get_viewport().get_mouse_position()).split(",")[1].split(")")[0])-(posiYY/2*patt3))+(Bottom_pos-Top_pos)/posiYY/PI)*0.01
+		Ypos = ((float(str(get_viewport().get_mouse_position()).split(",")[0].split("(")[1])-(posiXX/2*patt2))+(Left_pos-Right_pos)/posiXX/PI)*0.015
+		Xpos = ((float(str(get_viewport().get_mouse_position()).split(",")[1].split(")")[0])-(posiYY/2*patt3))+(Bottom_pos-Top_pos)/posiYY/PI)*0.015
 		for v in range(len(viag)):
-			viag[v][2].set_position(Vector2(Ypos+(0),Xpos+(0)))
+			#viag[v][2].offset.x += Ypos
+			#viag[v][2].offset.y += Xpos
+			viag[v][2].position.x += Ypos
+			viag[v][2].position.y += Xpos
 			
-		#queue_redraw()
-
+var isWin = 0
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		isWin.call()
 func _ready():
 	Window.MODE_WINDOWED
 	unfocusable = false
